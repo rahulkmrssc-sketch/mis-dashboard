@@ -679,7 +679,7 @@ async function connectSheet(){
   if(!url){st.style.color='#F43F5E';st.textContent='Please paste a valid CSV URL.';return;}
   st.style.color='#F59E0B';st.textContent='Connecting...';
   try{
-    const r=await https://docs.google.com/spreadsheets/d/e/2PACX-1vQi1ZSItr9pf1kD3UpGe4uys-Ew88aAab4WUZEyfvmkQDO4qg_ssDrY32V_H04mIJdOXiKgsgQuuFDD/pub?output=csv(url);
+    const r=await fetch(https://docs.google.com/spreadsheets/d/e/2PACX-1vQi1ZSItr9pf1kD3UpGe4uys-Ew88aAab4WUZEyfvmkQDO4qg_ssDrY32V_H04mIJdOXiKgsgQuuFDD/pub?output=csv);
     if(!r.ok)throw new Error('Fetch failed');
     const csv=await r.text();
     const rows=csv.trim().split('\n').slice(1);
